@@ -32,7 +32,20 @@ app.get("/works-in-chrome", (req, res) => {
             res.sendStatus(500);
         });
 
-        fileStream.pipe(res)
+        // fileStream.pipe(res)
+                const chunkSize = 1024 * 1024; // 1 MB
+        let offset = 0;
+        fileStream.on("readable", () => {
+            let chunk;
+            while ((chunk = fileStream.read(chunkSize)) !== null) {
+                res.write(chunk);
+                offset += chunk.length;
+            }
+        });
+        fileStream.on("end", () => {
+            res.end();
+        });
+
     });
 });
 
