@@ -8,7 +8,9 @@ const port = 3000;
 app.use(express.static("public"));
 
 const filePath = "./videos/index2.mp4";
-
+app.get('/',(req, res)=>{
+    res.sendFile(path.join(static_path, "index.html"));
+});
 app.get("/works-in-chrome", (req, res) => {
     res.setHeader("content-type", "application/mp4");
     
