@@ -1,6 +1,6 @@
 {
   "name": "video-streaming-example",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A Node.js/Express example of streaming video that works in both Chrome and Safari",
   "main": "index.js",
   "scripts": {

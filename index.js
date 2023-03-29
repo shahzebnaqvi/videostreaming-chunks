@@ -110,7 +110,7 @@ app.get('/works-in-chrome-and-safari', (req, res) => {
             });
             
             fileStream.pipe(res);
-            console.log(fileStream.pipe(res));
+            // console.log(fileStream.pipe(res));
         }
     });
 });
