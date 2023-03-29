@@ -33,7 +33,7 @@ app.get("/works-in-chrome", (req, res) => {
         });
 
         // fileStream.pipe(res)
-                const chunkSize = 1024 * 1024; // 1 MB
+        const chunkSize = 1024 * 1024; // 1 MB
         let offset = 0;
         fileStream.on("readable", () => {
             let chunk;
@@ -88,7 +88,7 @@ app.get('/works-in-chrome-and-safari', (req, res) => {
         let contentLength = stat.size;
 
         if (req.method === "HEAD") {
-            res.statusCode = 200;
+            res.statusCode = 206;
             res.setHeader("accept-ranges", "bytes");
             res.setHeader("content-length", contentLength);
             res.end();
@@ -108,7 +108,7 @@ app.get('/works-in-chrome-and-safari', (req, res) => {
                 retrievedLength = contentLength;
             }
 
-            res.statusCode = start !== undefined || end !== undefined ? 206 : 200;
+            res.statusCode = start !== undefined || end !== undefined ? 206 : 206;
 
             res.setHeader("content-length", retrievedLength);
 
